@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safety Procedures & Tools — Cyber I — Rebecca Thomas</title>
+<meta name="description" content="Safety Procedures & Tools unit page for Cyber I, Nevada Cybersecurity standards.">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+<div class="wrap">
+<header class="site-header">
+    <div class="brand-row">
+      <a class="brand" href="/">REBECCA THOMAS</a>
+      <nav class="top-nav">
+      <a href="/cyber-i/" class="active">Cyber I</a>
+      <a href="/cyber-ii/">Cyber II</a>
+      <a href="/cyber-as/">Cyber AS</a>
+      <a href="/about/">About Me</a>
+      </nav>
+    </div>
+    <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/cyber-i/">Cyber I</a><span class="sep">/</span><span>Safety Procedures & Tools</span></div>
+  </header>
+<h1 class="page-title">Safety Procedures &amp; Tools</h1>
+<p class="page-tagline">Content Standard 2.0: Safety Procedures and Proper Use of Tools</p>
+
+<p>Shop and lab safety, secure disposal of technology materials, and proper use of industry-standard diagnostic and repair tools.</p>
+
+<h3 class="ps-title">Performance Standard 2.1: Demonstrate Proper Safety Procedures</h3>
+<table class="ind-table">
+<thead><tr><th>Code</th><th>Performance Indicator</th></tr></thead>
+<tbody>
+<tr><td class="code">2.1.1</td><td>Demonstrate the proper use of safety devices based on industry regulations (L1)</td></tr>
+<tr><td class="code">2.1.2</td><td>Research the environmental impact of production based on industry standards (L1)</td></tr>
+<tr><td class="code">2.1.3</td><td>Research local, state, federal, and international regulations related to material handling (L1)</td></tr>
+<tr><td class="code">2.1.4</td><td>Demonstrate secure disposal of technology materials and data (L1)</td></tr>
+<tr><td class="code">2.1.5</td><td>Introduce Material Safety Data Sheets (MSDS) (L1)</td></tr>
+<tr><td class="code">2.1.6</td><td>Explain the relationship between organization and safety (L1)</td></tr>
+<tr><td class="code">2.1.7</td><td>Demonstrate an organized work environment (L1)</td></tr>
+<tr><td class="code">2.1.8</td><td>Demonstrate electrical safety (e.g., grounding, ESD [static]) (L1)</td></tr>
+<tr><td class="code">2.1.9</td><td>Apply installation safety (e.g., lifting, overhead movements) (L1)</td></tr>
+<tr><td class="code">2.1.10</td><td>Analyze emergency procedures (building layout, fire escape plan, safety/emergency exits, fail open/close, alert systems, natural disasters) (L1)</td></tr>
+</tbody>
+</table>
+<h3 class="ps-title">Performance Standard 2.2: Identify, Categorize, and Employ Industry Standard Tools</h3>
+<table class="ind-table">
+<thead><tr><th>Code</th><th>Performance Indicator</th></tr></thead>
+<tbody>
+<tr><td class="code">2.2.1</td><td>Explain common tools used in computer repair (L1)</td></tr>
+<tr><td class="code">2.2.2</td><td>Demonstrate the use of common networking and repair tools (L1)</td></tr>
+<tr><td class="code">2.2.3</td><td>Select the proper tool for diagnostic and troubleshooting procedures (L1)</td></tr>
+<tr><td class="code">2.2.4</td><td>Discuss fire suppression systems, the purpose of HVAC systems, and industry standards when dealing with loss of power (L1)</td></tr>
+</tbody>
+</table>
+<div class="unit-pager">
+  <div><a href="/cyber-i/"><span class="dir">&larr; previous</span>Cyber I overview</a></div>
+  <div><a href="/cyber-i/hardware-components/"><span class="dir">next &rarr;</span>Hardware Components</a></div>
+</div>
+<footer class="site-footer">
+    <p>&gt; Nevada CTE &middot; Digital Technology / Network Systems &middot; FBLA / SkillsUSA</p>
+  </footer>
+</div>
+<script>
+  (function(){
+    var canvas = document.getElementById('matrix-rain');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var chars = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var fontSize = 16;
+    var columns, drops;
+    function resize(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      columns = Math.floor(canvas.width / fontSize);
+      drops = new Array(columns).fill(1);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+    function draw(){
+      ctx.fillStyle = 'rgba(5,7,5,0.10)';
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = '#00ff41';
+      ctx.font = fontSize + 'px monospace';
+      for(var i=0;i<drops.length;i++){
+        var text = chars.charAt(Math.floor(Math.random()*chars.length));
+        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+        if(drops[i]*fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduceMotion){ setInterval(draw, 60); } else { canvas.style.display = 'none'; }
+  })();
+  </script>
+</body>
+</html>

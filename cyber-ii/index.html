@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber II — Rebecca Thomas</title>
+<meta name="description" content="Cyber II course page: data-driven, unit-by-unit pacing built from last year's state exam results.">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<canvas id="matrix-rain" aria-hidden="true"></canvas>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="wrap">
+<header class="site-header">
+    <div class="brand-row">
+      <a class="brand" href="/">REBECCA THOMAS</a>
+      <nav class="top-nav">
+      <a href="/cyber-i/">Cyber I</a>
+      <a href="/cyber-ii/" class="active">Cyber II</a>
+      <a href="/cyber-as/">Cyber AS</a>
+      <a href="/about/">About Me</a>
+      </nav>
+    </div>
+    <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><span>Cyber II</span></div>
+  </header>
+<h1 class="page-title">Cyber II</h1>
+<p class="page-tagline">Year 2 &middot; Networking, network operations, incident response, and forensics</p>
+<p>This year's pacing is built from last year's state Technical Skills Assessment results, standard by standard. The two biggest opportunities for growth are Network Operations (50.68% avg) and Operating Systems (58.92% avg) — both get extra room in the calendar below.</p>
+<h2 class="section-title">units</h2>
+<div class="card-grid">
+  <a class="card" href="/cyber-ii/operating-systems/" data-tag="UNIT 1">
+    <span class="tag">UNIT 1</span>
+    <h3>Operating Systems</h3>
+    <p>Where students lost the most ground last year. Two indicators scored in the teens/twenties — selecting the right OS feature/tool for a customer scenario (13.56%) and installing/configuring Windows networking (25.85%) — both hands-on, scenario-based skills rather than vocabulary recall.</p>
+  </a>
+  <a class="card" href="/cyber-ii/network-theory/" data-tag="UNIT 2">
+    <span class="tag">UNIT 2</span>
+    <h3>Industry Standards, Practices &amp; Network Theory</h3>
+    <p>The OSI model itself (42.37%) and wired/wireless connection practice (44-47%) were the softest spots last year. This is foundational for the Networking unit that follows.</p>
+  </a>
+  <a class="card" href="/cyber-ii/networking/" data-tag="UNIT 3">
+    <span class="tag">UNIT 3</span>
+    <h3>Networking</h3>
+    <p>The largest content standard in the tested pathway. Physical security controls (89.83%) and troubleshooting security issues (75.71%) are strengths to build on; routing basics (44.63%) and Ethernet adapter/utility skills (both 54.24%) need more hands-on lab time.</p>
+  </a>
+  <a class="card" href="/cyber-ii/network-operations/" data-tag="UNIT 4">
+    <span class="tag">UNIT 4</span>
+    <h3>Network Operations</h3>
+    <p>The lowest-scoring tested standard overall. SIEM tools scored 32.2% — the single lowest indicator on the entire exam — and network monitoring tools scored 41.24%. Port/vulnerability scanning tools (83.9%) show students CAN do well here when the tool is concrete and hands-on.</p>
+  </a>
+  <a class="card" href="/cyber-ii/cybersecurity-lifecycle/" data-tag="UNIT 5">
+    <span class="tag">UNIT 5</span>
+    <h3>Cybersecurity Lifecycle</h3>
+    <p>Generally a strength — incident scope/severity (84.75%) and data protection planning (74.58%) were solid. The one soft spot is eradication response (60.17%): make sure the incident-response simulation gives students practice actually executing the eradication step.</p>
+  </a>
+  <a class="card" href="/cyber-ii/computer-forensics/" data-tag="UNIT 6">
+    <span class="tag">UNIT 6</span>
+    <h3>Computer Forensics Concepts</h3>
+    <p>The strongest tested standard. Web app exploits (91.53%), phishing mitigation (84.75%), and pen-testing vs. vulnerability scanning (81.36%) were all strong. The outlier: identifying cyber threat actor types scored 48.31% — a vocabulary/categorization gap a quick sorting activity could close fast.</p>
+  </a>
+  <a class="card" href="/cyber-ii/review-and-state-exam/">
+    
+    <h3>Cumulative Review &amp; State Exam</h3>
+    <p>Practice exam + light refresh of Standard 3.0 before testing.</p>
+  </a>
+  <a class="card" href="/cyber-ii/certmaster-and-tech-plus/">
+    
+    <h3>CertMaster &amp; CompTIA Tech+</h3>
+    <p>Hands-on labs and remaining standards, working toward the Tech+ exam.</p>
+  </a>
+</div>
+<footer class="site-footer">
+    <p>&gt; Nevada CTE &middot; Digital Technology / Network Systems &middot; FBLA / SkillsUSA</p>
+  </footer>
+</div>
+<script>
+  (function(){
+    var canvas = document.getElementById('matrix-rain');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var chars = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var fontSize = 16;
+    var columns, drops;
+    function resize(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      columns = Math.floor(canvas.width / fontSize);
+      drops = new Array(columns).fill(1);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+    function draw(){
+      ctx.fillStyle = 'rgba(5,7,5,0.10)';
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = '#00ff41';
+      ctx.font = fontSize + 'px monospace';
+      for(var i=0;i<drops.length;i++){
+        var text = chars.charAt(Math.floor(Math.random()*chars.length));
+        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+        if(drops[i]*fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduceMotion){ setInterval(draw, 60); } else { canvas.style.display = 'none'; }
+  })();
+  </script>
+</body>
+</html>

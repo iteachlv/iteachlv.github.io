@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Forensics — Foundations — Cyber I — Rebecca Thomas</title>
+<meta name="description" content="Computer Forensics — Foundations unit page for Cyber I, Nevada Cybersecurity standards.">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+<div class="wrap">
+<header class="site-header">
+    <div class="brand-row">
+      <a class="brand" href="/">REBECCA THOMAS</a>
+      <nav class="top-nav">
+      <a href="/cyber-i/" class="active">Cyber I</a>
+      <a href="/cyber-ii/">Cyber II</a>
+      <a href="/cyber-as/">Cyber AS</a>
+      <a href="/about/">About Me</a>
+      </nav>
+    </div>
+    <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/cyber-i/">Cyber I</a><span class="sep">/</span><span>Computer Forensics — Foundations</span></div>
+  </header>
+<h1 class="page-title">Computer Forensics — Foundations</h1>
+<p class="page-tagline">Content Standard 10.0: Understand Computer Forensics Concepts (Year 1 portion)</p>
+
+<p>Threat actors, attack types, and an introduction to digital forensics response tools.</p>
+<div class="note">The remaining indicators for this standard (investigative objectives, malware analysis) are covered in Cyber II — see that course's Computer Forensics unit.</div>
+<h3 class="ps-title">Performance Standard 10.2: Examine Exploits, Threats, Attacks, and Targets (avg 59.32%)</h3>
+<table class="ind-table">
+<thead><tr><th>Code</th><th>Performance Indicator</th></tr></thead>
+<tbody>
+<tr><td class="code">10.2.1</td><td>Explain the proper use of penetration testing versus vulnerability scanning (L1)</td></tr>
+<tr><td class="code">10.2.2</td><td>Explain the many types of vulnerabilities, exploits, and cyber threats a First Responder encounters (L1)</td></tr>
+<tr><td class="code">10.2.3</td><td>Discover common types of cyber threat actors (Cybercriminals, Attention-Seekers, Script Kiddies, Hacktivists, Nation States) (L1)</td></tr>
+<tr><td class="code">10.2.4</td><td>Explain and summarize common cybersecurity attacks, including TTPs of threat actors (L1)</td></tr>
+<tr><td class="code">10.2.5</td><td>Examine and summarize the targets of cyber threat actors across sectors (L1)</td></tr>
+<tr><td class="code">10.2.6</td><td>Review and examine geopolitical flashpoints (L1)</td></tr>
+</tbody>
+</table>
+<h3 class="ps-title">Performance Standard 10.3: Digital Forensics and Forensic Response Tools and Methods (Year 1 indicators)</h3>
+<table class="ind-table">
+<thead><tr><th>Code</th><th>Performance Indicator</th></tr></thead>
+<tbody>
+<tr><td class="code">10.3.4</td><td>Identify encryption methods and demonstrate tools to decipher encrypted data (L1)</td></tr>
+<tr><td class="code">10.3.6</td><td>Identify Web application exploits and vulnerabilities (L1)</td></tr>
+<tr><td class="code">10.3.7</td><td>Describe and demonstrate Web Application Security and Scanning methods and tools (L1)</td></tr>
+<tr><td class="code">10.3.9</td><td>Describe and demonstrate a working knowledge of phishing attacks and mitigation steps (L1)</td></tr>
+</tbody>
+</table>
+<div class="unit-pager">
+  <div><a href="/cyber-i/cybersecurity-lifecycle-foundations/"><span class="dir">&larr; previous</span>Cybersecurity Lifecycle — Foundations</a></div>
+  <div><a href="/cyber-i/emerging-technologies/"><span class="dir">next &rarr;</span>Emerging Technologies</a></div>
+</div>
+<footer class="site-footer">
+    <p>&gt; Nevada CTE &middot; Digital Technology / Network Systems &middot; FBLA / SkillsUSA</p>
+  </footer>
+</div>
+<script>
+  (function(){
+    var canvas = document.getElementById('matrix-rain');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var chars = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var fontSize = 16;
+    var columns, drops;
+    function resize(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      columns = Math.floor(canvas.width / fontSize);
+      drops = new Array(columns).fill(1);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+    function draw(){
+      ctx.fillStyle = 'rgba(5,7,5,0.10)';
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = '#00ff41';
+      ctx.font = fontSize + 'px monospace';
+      for(var i=0;i<drops.length;i++){
+        var text = chars.charAt(Math.floor(Math.random()*chars.length));
+        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+        if(drops[i]*fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduceMotion){ setInterval(draw, 60); } else { canvas.style.display = 'none'; }
+  })();
+  </script>
+</body>
+</html>

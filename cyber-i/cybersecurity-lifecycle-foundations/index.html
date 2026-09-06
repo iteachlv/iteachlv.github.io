@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity Lifecycle — Foundations — Cyber I — Rebecca Thomas</title>
+<meta name="description" content="Cybersecurity Lifecycle — Foundations unit page for Cyber I, Nevada Cybersecurity standards.">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+<div class="wrap">
+<header class="site-header">
+    <div class="brand-row">
+      <a class="brand" href="/">REBECCA THOMAS</a>
+      <nav class="top-nav">
+      <a href="/cyber-i/" class="active">Cyber I</a>
+      <a href="/cyber-ii/">Cyber II</a>
+      <a href="/cyber-as/">Cyber AS</a>
+      <a href="/about/">About Me</a>
+      </nav>
+    </div>
+    <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/cyber-i/">Cyber I</a><span class="sep">/</span><span>Cybersecurity Lifecycle — Foundations</span></div>
+  </header>
+<h1 class="page-title">Cybersecurity Lifecycle — Foundations</h1>
+<p class="page-tagline">Content Standard 9.0: Understand the Cybersecurity Lifecycle (Year 1 portion)</p>
+
+<p>An introduction to the cybersecurity lifecycle and the early stages of incident response planning.</p>
+<div class="note">The remaining indicators for this standard (containment, eradication, chain-of-custody planning) are covered in Cyber II — see that course's Cybersecurity Lifecycle unit.</div>
+<h3 class="ps-title">Performance Standard 9.1: Explain the Cybersecurity Lifecycle</h3>
+<table class="ind-table">
+<thead><tr><th>Code</th><th>Performance Indicator</th></tr></thead>
+<tbody>
+<tr><td class="code">9.1.1</td><td>Describe the steps of the cybersecurity lifecycle (e.g., people, process, and tools) (L1)</td></tr>
+<tr><td class="code">9.1.2</td><td>Write a set of principles, rules, and practices to provide guidance and direction (L1)</td></tr>
+<tr><td class="code">9.1.3</td><td>Follow appropriate decision-making models to determine correct response procedures (L1)</td></tr>
+</tbody>
+</table>
+<h3 class="ps-title">Performance Standard 9.2: Develop an Incident Response Plan (Year 1 indicators)</h3>
+<table class="ind-table">
+<thead><tr><th>Code</th><th>Performance Indicator</th></tr></thead>
+<tbody>
+<tr><td class="code">9.2.1</td><td>Plan, prepare, and develop scope for a Cyber Incident Response Plan (L1)</td></tr>
+<tr><td class="code">9.2.2</td><td>Determine correct detection, mitigation, and reporting processes (L1)</td></tr>
+<tr><td class="code">9.2.3</td><td>Evaluate assessment and decision-making steps when handling an incident or event (L1)</td></tr>
+<tr><td class="code">9.2.4</td><td>Determine correct investigative procedures (L1)</td></tr>
+<tr><td class="code">9.2.5</td><td>Gather intelligence from a variety of sources, including open source and others (L1)</td></tr>
+<tr><td class="code">9.2.6</td><td>Document intelligence-gathering efforts, including who, what, when, where, why, and how (L1)</td></tr>
+<tr><td class="code">9.2.7</td><td>Determine the extent of event or incident scope, including severity (L1)</td></tr>
+</tbody>
+</table>
+<div class="unit-pager">
+  <div><a href="/cyber-i/network-theory/"><span class="dir">&larr; previous</span>Industry Standards, Practices &amp; Network Theory</a></div>
+  <div><a href="/cyber-i/computer-forensics-foundations/"><span class="dir">next &rarr;</span>Computer Forensics — Foundations</a></div>
+</div>
+<footer class="site-footer">
+    <p>&gt; Nevada CTE &middot; Digital Technology / Network Systems &middot; FBLA / SkillsUSA</p>
+  </footer>
+</div>
+<script>
+  (function(){
+    var canvas = document.getElementById('matrix-rain');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var chars = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var fontSize = 16;
+    var columns, drops;
+    function resize(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      columns = Math.floor(canvas.width / fontSize);
+      drops = new Array(columns).fill(1);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+    function draw(){
+      ctx.fillStyle = 'rgba(5,7,5,0.10)';
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = '#00ff41';
+      ctx.font = fontSize + 'px monospace';
+      for(var i=0;i<drops.length;i++){
+        var text = chars.charAt(Math.floor(Math.random()*chars.length));
+        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+        if(drops[i]*fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduceMotion){ setInterval(draw, 60); } else { canvas.style.display = 'none'; }
+  })();
+  </script>
+</body>
+</html>

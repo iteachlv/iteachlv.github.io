@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emerging Technologies — Cyber I — Rebecca Thomas</title>
+<meta name="description" content="Emerging Technologies unit page for Cyber I, Nevada Cybersecurity standards.">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+<div class="wrap">
+<header class="site-header">
+    <div class="brand-row">
+      <a class="brand" href="/">REBECCA THOMAS</a>
+      <nav class="top-nav">
+      <a href="/cyber-i/" class="active">Cyber I</a>
+      <a href="/cyber-ii/">Cyber II</a>
+      <a href="/cyber-as/">Cyber AS</a>
+      <a href="/about/">About Me</a>
+      </nav>
+    </div>
+    <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/cyber-i/">Cyber I</a><span class="sep">/</span><span>Emerging Technologies</span></div>
+  </header>
+<h1 class="page-title">Emerging Technologies</h1>
+<p class="page-tagline">Content Standard 11.0: Understand Emerging Technologies</p>
+
+<p>Workforce and society needs related to new and emerging technologies, and the ethics involved in securing them.</p>
+
+<h3 class="ps-title">Performance Standard 11.1: Explain Workforce and Society Needs Related to New and Emerging Technologies</h3>
+<table class="ind-table">
+<thead><tr><th>Code</th><th>Performance Indicator</th></tr></thead>
+<tbody>
+<tr><td class="code">11.1.1</td><td>Describe job skills needed for potential careers in new and emerging technologies (L1)</td></tr>
+<tr><td class="code">11.1.2</td><td>Explore potential uses for and industries that may use emerging technologies (L1)</td></tr>
+<tr><td class="code">11.1.3</td><td>Explain the role of ethics as it relates to security and emerging technologies (L1)</td></tr>
+</tbody>
+</table>
+<div class="unit-pager">
+  <div><a href="/cyber-i/computer-forensics-foundations/"><span class="dir">&larr; previous</span>Computer Forensics — Foundations</a></div>
+  <div><a href="/cyber-ii/"><span class="dir">next &rarr;</span>Cyber II</a></div>
+</div>
+<footer class="site-footer">
+    <p>&gt; Nevada CTE &middot; Digital Technology / Network Systems &middot; FBLA / SkillsUSA</p>
+  </footer>
+</div>
+<script>
+  (function(){
+    var canvas = document.getElementById('matrix-rain');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var chars = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var fontSize = 16;
+    var columns, drops;
+    function resize(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      columns = Math.floor(canvas.width / fontSize);
+      drops = new Array(columns).fill(1);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+    function draw(){
+      ctx.fillStyle = 'rgba(5,7,5,0.10)';
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = '#00ff41';
+      ctx.font = fontSize + 'px monospace';
+      for(var i=0;i<drops.length;i++){
+        var text = chars.charAt(Math.floor(Math.random()*chars.length));
+        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+        if(drops[i]*fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduceMotion){ setInterval(draw, 60); } else { canvas.style.display = 'none'; }
+  })();
+  </script>
+</body>
+</html>

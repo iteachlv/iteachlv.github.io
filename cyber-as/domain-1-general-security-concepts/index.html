@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>General Security Concepts — Cyber AS — Rebecca Thomas</title>
+<meta name="description" content="General Security Concepts unit page for Cyber AS, CompTIA Security+ exam objectives.">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+<div class="wrap">
+<header class="site-header">
+    <div class="brand-row">
+      <a class="brand" href="/">REBECCA THOMAS</a>
+      <nav class="top-nav">
+      <a href="/cyber-i/">Cyber I</a>
+      <a href="/cyber-ii/">Cyber II</a>
+      <a href="/cyber-as/" class="active">Cyber AS</a>
+      <a href="/about/">About Me</a>
+      </nav>
+    </div>
+    <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/cyber-as/">Cyber AS</a><span class="sep">/</span><span>General Security Concepts</span></div>
+  </header>
+<h1 class="page-title">General Security Concepts</h1>
+<p class="page-tagline">CompTIA Security+ (SY0-701) &middot; Domain 1.0 <span class="domain-weight">12%</span></p>
+<div class="meta-box">
+  <div class="meta-row"><span class="meta-label">Exam domain:</span> 1.0 General Security Concepts</div>
+  <div class="meta-row"><span class="meta-label">Exam weight:</span> 12% of the CompTIA Security+ (SY0-701) exam</div>
+</div>
+<p>Aligned to CompTIA Security Pro's course material and the CompTIA Security+ (SY0-701) certification exam, which this course prepares students to sit.</p>
+
+<div class="objective">
+    <h4>1.1 Compare and contrast various types of security controls</h4>
+    <ul><li>Categories: Technical, Managerial, Operational, Physical</li><li>Control types: Preventive, Deterrent, Detective, Corrective, Compensating, Directive</li></ul>
+  </div>
+<div class="objective">
+    <h4>1.2 Summarize fundamental security concepts</h4>
+    <ul><li>Confidentiality, Integrity, and Availability (CIA)</li><li>Non-repudiation</li><li>Authentication, Authorization, and Accounting (AAA)<ul><li>Authenticating people</li><li>Authenticating systems</li><li>Authorization models</li></ul></li><li>Gap analysis</li><li>Zero Trust<ul><li>Control Plane: Adaptive identity, Threat scope reduction, Policy-driven access control, Policy Administrator, Policy Engine</li><li>Data Plane: Implicit trust zones, Subject/System, Policy Enforcement Point</li></ul></li><li>Physical security: Bollards, Access control vestibule, Fencing, Video surveillance, Security guard, Access badge, Lighting, Sensors (Infrared, Pressure, Microwave, Ultrasonic)</li><li>Deception and disruption technology: Honeypot, Honeynet, Honeyfile, Honeytoken</li></ul>
+  </div>
+<div class="objective">
+    <h4>1.3 Explain the importance of change management processes and the impact to security</h4>
+    <ul><li>Business processes impacting security operation: Approval process, Ownership, Stakeholders, Impact analysis, Test results, Backout plan, Maintenance window, Standard operating procedure</li><li>Technical implications: Allow lists/deny lists, Restricted activities, Downtime, Service restart, Application restart, Legacy applications, Dependencies</li><li>Documentation: Updating diagrams, Updating policies/procedures</li><li>Version control</li></ul>
+  </div>
+<div class="objective">
+    <h4>1.4 Explain the importance of using appropriate cryptographic solutions</h4>
+    <ul><li>Public key infrastructure (PKI): Public key, Private key, Key escrow</li><li>Encryption<ul><li>Level: Full-disk, Partition, File, Volume, Database, Record</li><li>Transport/communication</li><li>Asymmetric</li><li>Symmetric</li><li>Key exchange</li><li>Algorithms</li><li>Key length</li></ul></li><li>Tools: Trusted Platform Module (TPM), Hardware security module (HSM), Key management system, Secure enclave</li><li>Obfuscation: Steganography, Tokenization, Data masking</li><li>Hashing</li><li>Salting</li><li>Digital signatures</li><li>Key stretching</li><li>Blockchain</li><li>Open public ledger</li><li>Certificates: Certificate authorities, Certificate revocation lists (CRLs), Online Certificate Status Protocol (OCSP), Self-signed, Third-party, Root of trust, Certificate signing request (CSR) generation, Wildcard</li></ul>
+  </div>
+<div class="unit-pager">
+  <div><a href="/cyber-as/"><span class="dir">&larr; previous</span>Cyber AS overview</a></div>
+  <div><a href="/cyber-as/domain-2-threats-vulnerabilities-and-mitigations/"><span class="dir">next &rarr;</span>Threats, Vulnerabilities, and Mitigations</a></div>
+</div>
+<footer class="site-footer">
+    <p>&gt; Nevada CTE &middot; Digital Technology / Network Systems &middot; FBLA / SkillsUSA</p>
+  </footer>
+</div>
+<script>
+  (function(){
+    var canvas = document.getElementById('matrix-rain');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var chars = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var fontSize = 16;
+    var columns, drops;
+    function resize(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      columns = Math.floor(canvas.width / fontSize);
+      drops = new Array(columns).fill(1);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+    function draw(){
+      ctx.fillStyle = 'rgba(5,7,5,0.10)';
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = '#00ff41';
+      ctx.font = fontSize + 'px monospace';
+      for(var i=0;i<drops.length;i++){
+        var text = chars.charAt(Math.floor(Math.random()*chars.length));
+        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+        if(drops[i]*fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduceMotion){ setInterval(draw, 60); } else { canvas.style.display = 'none'; }
+  })();
+  </script>
+</body>
+</html>

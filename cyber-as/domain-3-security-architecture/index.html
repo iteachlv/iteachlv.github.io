@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security Architecture — Cyber AS — Rebecca Thomas</title>
+<meta name="description" content="Security Architecture unit page for Cyber AS, CompTIA Security+ exam objectives.">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+<div class="wrap">
+<header class="site-header">
+    <div class="brand-row">
+      <a class="brand" href="/">REBECCA THOMAS</a>
+      <nav class="top-nav">
+      <a href="/cyber-i/">Cyber I</a>
+      <a href="/cyber-ii/">Cyber II</a>
+      <a href="/cyber-as/" class="active">Cyber AS</a>
+      <a href="/about/">About Me</a>
+      </nav>
+    </div>
+    <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/cyber-as/">Cyber AS</a><span class="sep">/</span><span>Security Architecture</span></div>
+  </header>
+<h1 class="page-title">Security Architecture</h1>
+<p class="page-tagline">CompTIA Security+ (SY0-701) &middot; Domain 3.0 <span class="domain-weight">18%</span></p>
+<div class="meta-box">
+  <div class="meta-row"><span class="meta-label">Exam domain:</span> 3.0 Security Architecture</div>
+  <div class="meta-row"><span class="meta-label">Exam weight:</span> 18% of the CompTIA Security+ (SY0-701) exam</div>
+</div>
+<p>Aligned to CompTIA Security Pro's course material and the CompTIA Security+ (SY0-701) certification exam, which this course prepares students to sit.</p>
+
+<div class="objective">
+    <h4>3.1 Compare and contrast security implications of different architecture models</h4>
+    <ul><li>Architecture and infrastructure concepts<ul><li>Cloud: Responsibility matrix, Hybrid considerations, Third-party vendors</li><li>Infrastructure as code (IaC)</li><li>Serverless</li><li>Microservices</li><li>Network infrastructure: Physical isolation (Air-gapped), Logical segmentation, Software-defined networking (SDN)</li><li>On-premises</li><li>Centralized vs. decentralized</li><li>Containerization</li><li>Virtualization</li><li>IoT</li><li>Industrial control systems (ICS)/SCADA</li><li>Real-time operating system (RTOS)</li><li>Embedded systems</li><li>High availability</li></ul></li><li>Considerations: Availability, Resilience, Cost, Responsiveness, Scalability, Ease of deployment, Risk transference, Ease of recovery, Patch availability, Inability to patch, Power, Compute</li></ul>
+  </div>
+<div class="objective">
+    <h4>3.2 Given a scenario, apply security principles to secure enterprise infrastructure</h4>
+    <ul><li>Infrastructure considerations<ul><li>Device placement</li><li>Security zones</li><li>Attack surface</li><li>Connectivity</li><li>Failure modes: Fail-open, Fail-closed</li><li>Device attribute: Active vs. passive, Inline vs. tap/monitor</li><li>Network appliances: Jump server, Proxy server, IPS/IDS, Load balancer, Sensors</li><li>Port security: 802.1X, Extensible Authentication Protocol (EAP)</li><li>Firewall types: WAF, Unified threat management (UTM), Next-generation firewall (NGFW), Layer 4/Layer 7</li></ul></li><li>Secure communication/access<ul><li>Virtual private network (VPN)</li><li>Remote access</li><li>Tunneling: TLS, IPSec</li><li>Software-defined wide area network (SD-WAN)</li><li>Secure access service edge (SASE)</li></ul></li><li>Selection of effective controls</li></ul>
+  </div>
+<div class="objective">
+    <h4>3.3 Compare and contrast concepts and strategies to protect data</h4>
+    <ul><li>Data types: Regulated, Trade secret, Intellectual property, Legal information, Financial information, Human- and non-human-readable</li><li>Data classifications: Sensitive, Confidential, Public, Restricted, Private, Critical</li><li>General data considerations<ul><li>Data states: Data at rest, Data in transit, Data in use</li><li>Data sovereignty</li><li>Geolocation</li></ul></li><li>Methods to secure data: Geographic restrictions, Encryption, Hashing, Masking, Tokenization, Obfuscation, Segmentation, Permission restrictions</li></ul>
+  </div>
+<div class="objective">
+    <h4>3.4 Explain the importance of resilience and recovery in security architecture</h4>
+    <ul><li>High availability: Load balancing vs. clustering</li><li>Site considerations: Hot, Cold, Warm, Geographic dispersion</li><li>Platform diversity</li><li>Multi-cloud systems</li><li>Continuity of operations</li><li>Capacity planning: People, Technology, Infrastructure</li><li>Testing: Tabletop exercises, Fail over, Simulation, Parallel processing</li><li>Backups: Onsite/offsite, Frequency, Encryption, Snapshots, Recovery, Replication, Journaling</li><li>Power: Generators, Uninterruptible power supply (UPS)</li></ul>
+  </div>
+<div class="unit-pager">
+  <div><a href="/cyber-as/domain-2-threats-vulnerabilities-and-mitigations/"><span class="dir">&larr; previous</span>Threats, Vulnerabilities, and Mitigations</a></div>
+  <div><a href="/cyber-as/domain-4-security-operations/"><span class="dir">next &rarr;</span>Security Operations</a></div>
+</div>
+<footer class="site-footer">
+    <p>&gt; Nevada CTE &middot; Digital Technology / Network Systems &middot; FBLA / SkillsUSA</p>
+  </footer>
+</div>
+<script>
+  (function(){
+    var canvas = document.getElementById('matrix-rain');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var chars = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var fontSize = 16;
+    var columns, drops;
+    function resize(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      columns = Math.floor(canvas.width / fontSize);
+      drops = new Array(columns).fill(1);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+    function draw(){
+      ctx.fillStyle = 'rgba(5,7,5,0.10)';
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = '#00ff41';
+      ctx.font = fontSize + 'px monospace';
+      for(var i=0;i<drops.length;i++){
+        var text = chars.charAt(Math.floor(Math.random()*chars.length));
+        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+        if(drops[i]*fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduceMotion){ setInterval(draw, 60); } else { canvas.style.display = 'none'; }
+  })();
+  </script>
+</body>
+</html>

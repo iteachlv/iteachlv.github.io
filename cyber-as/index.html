@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Advanced Studies — Rebecca Thomas</title>
+<meta name="description" content="Cyber AS course page: CompTIA Security Pro / Security+ (SY0-701) domains.">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<canvas id="matrix-rain" aria-hidden="true"></canvas>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="wrap">
+<header class="site-header">
+    <div class="brand-row">
+      <a class="brand" href="/">REBECCA THOMAS</a>
+      <nav class="top-nav">
+      <a href="/cyber-i/">Cyber I</a>
+      <a href="/cyber-ii/">Cyber II</a>
+      <a href="/cyber-as/" class="active">Cyber AS</a>
+      <a href="/about/">About Me</a>
+      </nav>
+    </div>
+    <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><span>Cyber AS</span></div>
+  </header>
+<h1 class="page-title">Cyber Advanced Studies</h1>
+<p class="page-tagline">CompTIA Security Pro &middot; preparing for the CompTIA Security+ (SY0-701) certification exam</p>
+<p>Cyber AS uses the CompTIA Security Pro course to prepare students for the CompTIA Security+ certification exam. Units below follow the five official Security+ exam domains, in proportion to how much each is worth on exam day — Security Operations (28%) and Threats/Vulnerabilities/Mitigations (22%) carry the most weight and deserve the most instructional time.</p>
+<h2 class="section-title">units</h2>
+<div class="card-grid">
+  <a class="card" href="/cyber-as/domain-1-general-security-concepts/" data-tag="12% of exam">
+    <span class="tag">12% of exam</span>
+    <h3>1.0 General Security Concepts</h3>
+    <p>Domain 1.0 of the CompTIA Security+ (SY0-701) exam.</p>
+  </a>
+  <a class="card" href="/cyber-as/domain-2-threats-vulnerabilities-and-mitigations/" data-tag="22% of exam">
+    <span class="tag">22% of exam</span>
+    <h3>2.0 Threats, Vulnerabilities, and Mitigations</h3>
+    <p>Domain 2.0 of the CompTIA Security+ (SY0-701) exam.</p>
+  </a>
+  <a class="card" href="/cyber-as/domain-3-security-architecture/" data-tag="18% of exam">
+    <span class="tag">18% of exam</span>
+    <h3>3.0 Security Architecture</h3>
+    <p>Domain 3.0 of the CompTIA Security+ (SY0-701) exam.</p>
+  </a>
+  <a class="card" href="/cyber-as/domain-4-security-operations/" data-tag="28% of exam">
+    <span class="tag">28% of exam</span>
+    <h3>4.0 Security Operations</h3>
+    <p>Domain 4.0 of the CompTIA Security+ (SY0-701) exam.</p>
+  </a>
+  <a class="card" href="/cyber-as/domain-5-security-program-management-and-oversight/" data-tag="20% of exam">
+    <span class="tag">20% of exam</span>
+    <h3>5.0 Security Program Management and Oversight</h3>
+    <p>Domain 5.0 of the CompTIA Security+ (SY0-701) exam.</p>
+  </a>
+</div>
+<footer class="site-footer">
+    <p>&gt; Nevada CTE &middot; Digital Technology / Network Systems &middot; FBLA / SkillsUSA</p>
+  </footer>
+</div>
+<script>
+  (function(){
+    var canvas = document.getElementById('matrix-rain');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var chars = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var fontSize = 16;
+    var columns, drops;
+    function resize(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      columns = Math.floor(canvas.width / fontSize);
+      drops = new Array(columns).fill(1);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+    function draw(){
+      ctx.fillStyle = 'rgba(5,7,5,0.10)';
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = '#00ff41';
+      ctx.font = fontSize + 'px monospace';
+      for(var i=0;i<drops.length;i++){
+        var text = chars.charAt(Math.floor(Math.random()*chars.length));
+        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+        if(drops[i]*fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduceMotion){ setInterval(draw, 60); } else { canvas.style.display = 'none'; }
+  })();
+  </script>
+</body>
+</html>
