@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me — Rebecca Thomas</title>
+<meta name="description" content="About Rebecca Thomas — Career & Technical Education Curriculum Leader, Clark County School District.">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<canvas id="matrix-rain" aria-hidden="true"></canvas>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="wrap">
+<header class="site-header">
+    <div class="brand-row">
+      <a class="brand" href="/">REBECCA THOMAS</a>
+      <nav class="top-nav">
+      <a href="/cyber-i/">Cyber I</a>
+      <a href="/cyber-ii/">Cyber II</a>
+      <a href="/cyber-as/">Cyber AS</a>
+      <a href="/about/" class="active">About Me</a>
+      </nav>
+    </div>
+    <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><span>About Me</span></div>
+  </header>
+<h1 class="page-title">About Me</h1>
+<p class="page-tagline">$ cat about.txt</p>
+
+<div class="about-hero">
+  <div class="about-photo">
+    <img src="/assets/img/rebecca-thomas.jpg" alt="Rebecca Thomas">
+  </div>
+  <div class="about-intro">
+    <p>I'm a proud Las Vegas native and a Career & Technical Education Curriculum Leader for the Clark County School District, where I design and build the cybersecurity, computer science, IT, and web design courses taught across the district — built out in Canvas LMS and aligned to Nevada's End-of-Course assessments and CompTIA certification frameworks.</p>
+    <p>I started in the classroom teaching AP U.S. Government and AP Comparative Politics, then moved into instructional design — training staff on new platforms and tools before eventually building full curricula from the ground up. Along the way I picked up two master's degrees and a run of doctoral coursework in Curriculum & Instruction, plus Nevada licenses spanning Computer Science, Computer-Based Applications, Social Studies, and School Administration.</p>
+    <p>I coach FBLA to state and national recognition most years, and the work has earned a few honors along the way, including an NCWIT Inspirations Educator Award and a Vegas Inc. Top Tech Award for Education.</p>
+    <p>Off the clock, I'm training for my next ultramarathon out in Red Rock Canyon, and keeping up with my teenage twins — who keep me at least as busy as any curriculum deadline.</p>
+  </div>
+</div>
+
+<h2 class="section-title">education</h2>
+<ul class="cred-list">
+<li><span class="cred-title">Doctoral Studies, Curriculum &amp; Instruction — Interaction and Media Sciences</span><span class="cred-meta">University of Nevada, Las Vegas · 2021–2025 (coursework completed)</span></li>
+<li><span class="cred-title">M.Ed., Educational Administration</span><span class="cred-meta">Grand Canyon University · 2016</span></li>
+<li><span class="cred-title">M.Ed., Curriculum &amp; Instruction — Technology Integration</span><span class="cred-meta">University of Nevada, Las Vegas · 2013</span></li>
+<li><span class="cred-title">B.S., Secondary Education — Social Studies</span><span class="cred-meta">University of Nevada, Las Vegas · 2007</span></li>
+</ul>
+
+<h2 class="section-title">licenses</h2>
+<ul class="cred-list">
+<li><span class="cred-title">Nevada DOE License: Computer Science (7–12)</span><span class="cred-meta"></span></li>
+<li><span class="cred-title">Nevada DOE License: Computer-Based Applications (7–12)</span><span class="cred-meta"></span></li>
+<li><span class="cred-title">Nevada DOE License: Social Studies (7–12)</span><span class="cred-meta"></span></li>
+<li><span class="cred-title">Nevada DOE License: School Administrator (K–12)</span><span class="cred-meta"></span></li>
+</ul>
+
+<h2 class="section-title">selected recognition</h2>
+<ul class="award-list">
+<li><span class="award-title">NCWIT Inspirations Educator Award</span><span class="award-meta">2022, 2025</span></li>
+<li><span class="award-title">Vegas Inc. Top Tech Award for Education</span><span class="award-meta">2019</span></li>
+<li><span class="award-title">Nevada CTE Externship, Governor's Office of Workforce and Innovation</span><span class="award-meta">2022</span></li>
+<li><span class="award-title">National History Day — Patricia E. Behring Nevada Teacher of the Year</span><span class="award-meta">2012</span></li>
+<li><span class="award-title">Teacher of the Year, Southern Nevada Council of Social Studies</span><span class="award-meta">2012</span></li>
+</ul>
+<footer class="site-footer">
+    <p>&gt; Nevada CTE &middot; Digital Technology / Network Systems &middot; FBLA / SkillsUSA</p>
+  </footer>
+</div>
+<script>
+  (function(){
+    var canvas = document.getElementById('matrix-rain');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var chars = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var fontSize = 16;
+    var columns, drops;
+    function resize(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      columns = Math.floor(canvas.width / fontSize);
+      drops = new Array(columns).fill(1);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+    function draw(){
+      ctx.fillStyle = 'rgba(5,7,5,0.10)';
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = '#00ff41';
+      ctx.font = fontSize + 'px monospace';
+      for(var i=0;i<drops.length;i++){
+        var text = chars.charAt(Math.floor(Math.random()*chars.length));
+        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+        if(drops[i]*fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduceMotion){ setInterval(draw, 60); } else { canvas.style.display = 'none'; }
+  })();
+  </script>
+</body>
+</html>
